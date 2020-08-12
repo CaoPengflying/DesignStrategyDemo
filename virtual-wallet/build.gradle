@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'cpf.zzc.virtualWallt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
+
+    compile(
+            "mysql:mysql-connector-java",
+            "com.baomidou:mybatis-plus-boot-starter:3.3.0",
+            "com.baomidou:mybatis-plus-generator:3.3.1.tmp",
+            "org.springframework.boot:spring-boot-starter-test",
+            "ch.qos.logback:logback-core:1.1.7",
+            "ch.qos.logback:logback-classic:1.1.7",
+            "org.slf4j:slf4j-api:1.7.25",
+            "org.apache.commons:commons-lang3:3.4",
+            "com.google.code.google-collections:google-collect:snapshot-20080530"
+
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
