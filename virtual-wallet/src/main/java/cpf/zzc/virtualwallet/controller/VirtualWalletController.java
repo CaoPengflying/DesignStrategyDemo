@@ -1,6 +1,6 @@
 package cpf.zzc.virtualwallet.controller;
 
-import cpf.zzc.virtualwallet.service.VirtualWalletService;
+import cpf.zzc.virtualwallet.service.VirtualWalletEntityService;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @Controller
 public class VirtualWalletController {
     @Resource
-    private VirtualWalletService virtualWalletService;
+    private VirtualWalletEntityService virtualWalletEntityService;
 
     /**
      * 获取余额
